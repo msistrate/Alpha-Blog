@@ -2,3 +2,7 @@
 
 <p>Title: <%= @article.title %></p>
 <p>Description: <%= @article.description %></p>
+
+<%= link_to 'Articles Listing', articles_path %> |
+<%= link_to 'Delete Article', article_path(@article), method: :delete, data: { confirm: 'Are you sure you want to delete this article?' } %>
+
