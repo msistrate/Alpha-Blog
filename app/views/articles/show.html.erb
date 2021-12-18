@@ -1,8 +1,21 @@
-<h1>Show Article</h1>
-
-<p>Title: <%= @article.title %></p>
-<p>Description: <%= @article.description %></p>
-
-<%= link_to 'Articles Listing', articles_path %> |
-<%= link_to 'Delete Article', article_path(@article), method: :delete, data: { confirm: 'Are you sure you want to delete this article?' } %>
-
+<h1 class="text-center mt-4"><%= @article.title %></h1>
+	
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 mt-4 shadow-lg mb-5 bg-body rounded  text-white">
+      <div class="card text-center">
+        <div class="card-header bg-dark text-left font-italic font-weight-bold">
+          by Istrate MIhai			
+        </div>		
+        <div class="card-body  bg-secondary bg-gradient">
+          <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+          <%= link_to 'Edit article', edit_article_path(@article), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy article', article_path(@article), method: :delete, data: { confirm: 'Are you Sure?' } ,class: 'btn btn-danger' %>
+        </div>
+        <div class="card-footer bg-dark text-white">
+          <small>Created <%= time_ago_in_words(@article.created_at) %> ago, edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

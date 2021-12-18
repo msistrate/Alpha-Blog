@@ -3,17 +3,17 @@
 <div class="container">
   <% @articles.each do |article| %>
   <div class="row justify-content-center">
-    <div class="col-8 mt-4 shadow-lg mb-5 bg-body rounded">
+    <div class="col-8 mt-4 shadow-lg mb-5 bg-body rounded text-white">
       <div class="card text-center">
-        <div class="card-header bg-dark text-left text-white font-italic font-weight-bold">
+        <div class="card-header bg-dark text-left font-italic font-weight-bold">
           by Istrate MIhai
         </div>
         <div class="card-body  bg-secondary bg-gradient">
           <h5 class="card-title"><%= link_to article.title, article_path(article), class: 'text-success' %></h5>
           <p class="card-text"><%= truncate(article.description, length: 50) %></p>
-          <%= link_to 'Show article', article_path(article), class: 'btn btn-outline-success' %>
-          <%= link_to 'Edit article', edit_article_path(article), class: 'btn btn-outline-primary' %>
-          <%= link_to 'Destroy article', article_path(article), method: :delete, data: { confirm: 'Are you Sure?' } ,class: 'btn btn-outline-danger' %>
+          <%= link_to 'Show article', article_path(article), class: 'btn btn-success' %>
+          <%= link_to 'Edit article', edit_article_path(article), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy article', article_path(article), method: :delete, data: { confirm: 'Are you Sure?' } ,class: 'btn btn-danger' %>
         </div>
         <div class="card-footer bg-dark text-white">
           <small>Created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %> ago</small>
@@ -23,5 +23,3 @@
   </div>
   <% end %>
 </div>
-
-<%= link_to 'Add Article', new_article_path %>
