@@ -1,0 +1,19 @@
+<h1 class="text-center mt-4"><%= @user.username %></h1>
+
+<%= gravatar_for @user, size: 200 %>
+
+<div class="text-center mt-4">
+	<%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-outline-light btn-lg' %>
+</div>
+
+<h2 class="text-center mt-4">Articles</h2>
+
+<div class="apple_pagination bg-transparent">
+	<%= will_paginate @articles, :container => false %>
+</div>
+
+<%= render 'articles/article' %>
+
+<div class="apple_pagination mb-4 bg-transparent">
+	<%= will_paginate @articles, :container => false %>
+</div>
